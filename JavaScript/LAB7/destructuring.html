@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Destructuring Demo</title>
+</head>
+<body>
+    <h2>Destructuring Demo</h2>
+    <div id="display"></div>
+    <script>
+        function print(content){
+            document.getElementById('display').innerHTML += content + "<br>"
+        }
+
+        const fruits = ["Apple" , "Banana" , "Cherry"];
+        const [f1 , f2 , f3] = fruits;
+        print("Fruit1: " + f1)
+        print("Fruit2: " + f2)
+        print("Fruit3: " + f3)
+
+        print("<br>")
+
+        const student = {
+            "name" :"Nirav",
+            "age" :19,
+            "course" : "CSE"
+        }
+
+        const {name , age , course} = student ;
+        print("Name: " + name);
+        print("Age: " + age);
+        print("Course: " + course);
+    </script>
+</body>
+</html>

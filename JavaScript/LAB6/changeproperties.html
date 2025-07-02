@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change HTML Properties</title>
+  <style>
+    #myPara {
+      padding: 10px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="mypara">This is a sample paragraph.</p>
+
+  <button onclick="changeProperties()">Click to Change Properties</button>
+
+  <script>
+    function changeProperties() {
+      // const para = document.getElementById("mypara");
+      mypara.innerText = "The paragraph text has been changed!";
+      mypara.style.color = "white";
+      mypara.style.backgroundColor = "darkblue";
+      mypara.style.fontSize = "20px";
+      mypara.style.fontWeight = "bold";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age
+            }
+
+            welcome(){
+                document.write("Hello from " + this.name + " " + "My age is " + this.age)
+            }
+        }
+
+        const p = new Person("Nirav" , 19)
+        p.welcome()
+    </script>
+</body>
+</html>

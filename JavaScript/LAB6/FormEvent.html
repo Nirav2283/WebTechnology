@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Event Recognizer</title>
+</head>
+<body>
+  <h2>Form Event Detection</h2>
+
+  <form id="myForm">
+    <input type="text" name="username" id="username" placeholder="Enter username" /><br><br>
+    <input type="password" name="password" id="password" placeholder="Enter password" /><br><br>
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
+  </form>
+
+  <p id="log"></p>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const log = document.getElementById('log');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); 
+      log.innerHTML = "Submit Event Fired";
+    });
+
+    
+    form.addEventListener('reset', function () {
+      log.innerHTML = "Reset Event Fired";
+    });
+
+
+    username.addEventListener('focus', function () {
+      log.innerHTML = "Focus Event Fired on Username";
+    });
+
+    password.addEventListener('focus', function () {
+      log.innerHTML = "Focus Event Fired on Password";
+    });
+
+
+    username.addEventListener('blur', function () {
+      log.innerHTML = "Blur Event Fired on Username";
+    });
+
+    password.addEventListener('blur', function () {
+      log.innerHTML = "Blur Event Fired on Password";
+    });
+
+   
+  </script>
+</body>
+</html>

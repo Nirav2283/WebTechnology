@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List of Checkbox</title>
+</head>
+<body>
+
+  <h2>Select Roll Numbers</h2>
+  <label><input type="checkbox" class="roll" value="101"> 101</label><br>
+  <label><input type="checkbox" class="roll" value="102"> 102</label><br>
+  <label><input type="checkbox" class="roll" value="103"> 103</label><br>
+  <label><input type="checkbox" class="roll" value="104"> 104</label><br>
+  <label><input type="checkbox" class="roll" value="105"> 105</label><br>
+
+  <h4>Selected Roll Numbers:</h4>
+  <p id="output"></p>
+
+  <script>
+    const checkboxes = document.getElementsByClassName('roll');
+    const output = document.getElementById('output');
+
+    document.addEventListener('change', function () {
+      let selected = [];
+
+      for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          selected.push(checkboxes[i].value);
+        }
+      }
+
+      output.innerText = selected.join(', ');
+    });
+  </script>
+
+</body>
+</html>

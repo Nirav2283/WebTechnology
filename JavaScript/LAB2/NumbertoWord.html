@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="button" onclick="getNum()" style="background-color: red; border-radius: 10px; margin: 50px; padding: 15px;">ENTER FOR SET NUMBER</button>
+    <script>
+
+        let a = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+        let b = ['Eleven', 'Twelve', 'Thirteen', 'Forteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Ninteen'];
+        let c = ['Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+
+        
+        function getNum(n) {
+            var n = prompt("Enter Your Number : ");
+            var temp = n;
+            var result = '';
+
+            if (isNaN(n)) {
+                document.write("Not A Number");
+            }
+            else if (n < 0 || n > 999) {
+                document.write("Not A Valid Number");
+            } 
+            else if (n == 0) {
+                result += 'zero';
+            }
+            else if (n != 0) {
+                if (n >= 100) {
+                    result += a[Math.floor(n / 100) - 1] + ' hundred ';
+                    n = n % 100;
+                }
+                if (n >= 20 && n < 100) {
+                    result += c[Math.floor(n / 10) - 2] + ' ';
+                    n = n % 10;
+                }
+                if (n > 10 && n < 20) {
+                    result += b[Math.floor(n % 10) - 1];
+                }
+                if (n != 0 && n <= 10) {
+                    result += a[n - 1];
+                }
+            }
+            document.write(result);
+        }
+
+    </script>
+</body>
+
+</html>

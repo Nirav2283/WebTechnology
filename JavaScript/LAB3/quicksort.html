@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Sort</title>
+</head>
+<body>
+  <script>
+    let arr = [5, 3, 8, 4, 2, 7, 1, 10];
+
+
+    let stack = [];
+    stack.push(0);
+    stack.push(arr.length - 1);
+
+    while (stack.length > 0) {
+      let end = stack.pop();
+      let start = stack.pop();
+
+      let pivot = arr[start];
+      let low = start + 1;
+      let high = end;
+
+      while (low <= high) {
+        while (low <= end && arr[low] <= pivot) {
+          low++;
+        }
+        while (high > start && arr[high] >= pivot) {
+          high--;
+        }
+        if (low < high) {
+          let temp = arr[low];
+          arr[low] = arr[high];
+          arr[high] = temp;
+        }
+      }
+
+      if (arr[start] > arr[high]) {
+        let temp = arr[start];
+        arr[start] = arr[high];
+        arr[high] = temp;
+      }
+
+      if (start < high - 1) {
+        stack.push(start);
+        stack.push(high - 1);
+      }
+
+      if (high + 1 < end) {
+        stack.push(high + 1);
+        stack.push(end);
+      }
+    }
+
+    // Display result
+    document.write("Sorted Array: " + arr.join(", "));
+  </script>
+</body>
+</html>

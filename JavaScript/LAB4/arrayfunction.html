@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Functions Demo</title>
+</head>
+<body>
+  <script>
+    let fruits = ["apple", "banana", "cherry"];
+
+    fruits.push("date");
+    fruits.pop();
+
+    let joined = fruits.join(" - ");
+    let sliced = fruits.slice(1, 3);
+    let spliced = fruits.splice(1, 1, "kiwi", "lemon");
+
+    let upperFruits = fruits.map(f => f.toUpperCase());
+    let filtered = fruits.filter(f => f.startsWith("a"));
+    let found = fruits.find(f => f.length > 5);
+    let index = fruits.indexOf("banana");
+    let includes = fruits.includes("apple");
+    let sorted = fruits.sort();
+    let reversed = fruits.reverse();
+    let total = [1, 2, 3, 4].reduce((sum, val) => sum + val, 0);
+
+    document.write("Original: " + fruits + "<br>");
+    document.write("Joined: " + joined + "<br>");
+    document.write("Sliced: " + sliced + "<br>");
+    document.write("Spliced: " + spliced + "<br>");
+    document.write("Mapped: " + upperFruits + "<br>");
+    document.write("Filtered: " + filtered + "<br>");
+    document.write("Found: " + found + "<br>");
+    document.write("IndexOf: " + index + "<br>");
+    document.write("Includes: " + includes + "<br>");
+    document.write("Sorted: " + sorted + "<br>");
+    document.write("Reversed: " + reversed + "<br>");
+    document.write("Reduced (sum): " + total + "<br>");
+  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 50%;
+            height: 100vh;
+            background: skyblue;
+            margin-left: 300px;
+            padding: 2%;
+        }
+
+        h1 {
+            text-align: center;
+            /*			border: 1px solid black;*/
+        }
+
+        #line {
+            height: 1%;
+            background: white;
+        }
+
+        #name {
+            padding: 2%;
+            height: 80px;
+            /*			border: 1px solid black;*/
+        }
+
+        #select {
+            padding: 2%;
+            height: 80px;
+            /*			border: 2px solid black;*/
+        }
+
+        #contect {
+            padding: 2%;
+            height: 250px;
+            /*			border: 1px solid red;*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div>
+            <h1>Student Registration Form</h1>
+        </div>
+        <div id="line"></div>
+        
+        <div id="name">
+            <div><label>First Name :</label>
+                <input id="fname" type="text" placeholder="enter First Name">
+                <span id="errfname"></span>
+            </div>
+            <br>
+            <div><label style="margin-top:20px;">Last Name : </label>
+                <input id="lname" type="text" placeholder="enter last Name">
+                <span id="errlname"></span>
+            </div>
+        </div>
+        <div id="select">
+            <div><label>Course :</label>
+                <select>
+                    <option disabled selected>course</option>
+                    <option>B.Tech.</option>
+                    <option>M.Tech.</option>
+                    <option>B.E.</option>
+                </select>
+            </div>
+            <div style="margin-top:20px">
+                <label>Gender :</label>
+                <input type="radio" name="Gender">Male
+                <input type="radio" name="Gender">Female
+            </div>
+        </div>
+        <div id="contect">
+            <div style="margin-top:20px">
+                <label>Phone No : </label>
+                <input 
+                 oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                 id="phone" type="tel" name="" placeholder="enter phone No"
+                >
+                <span id="errphone"></span>
+            </div>
+            <div style="margin-top:20px">
+                <label>Password : </label>
+                <input id="pass" type="text" name="" placeholder="enter Password">
+                <span id="errpass"></span>
+            </div>
+            <div style="margin-top:20px">
+                <label>Re-Type Password : </label>
+                <input id="repass" type="text" name="" placeholder="Re-Password">
+                <span id="err-repass"></span>
+            </div>
+            <div style="margin-top:20px">
+                <label>Email : </label>
+                <input id="email" type="text" name="" placeholder="emter email address">
+            </div>
+        </div>
+        <div>
+            <button onclick="checkValidation()">Submit</button>
+            <button onclick="abc(e)">Reset</button>
+            <!-- <input  type="reset"> -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        document.getElementById('fname').addEventListener('blur', () => {
+            fname = document.getElementById('fname').value;
+            if (fname.length < 8) {
+                document.getElementById('errfname').innerHTML = "enter name grater 8 charcter";
+                document.getElementById('errfname').style.border = "2px solid red";
+                document.getElementById('errfname').style.color = "red";
+            }
+        });
+        document.getElementById('fname').addEventListener('focus', () => {
+            document.getElementById('errfname').innerHTML = "";
+            document.getElementById('errfname').style.border = "";
+        });
+
+        document.getElementById('lname').addEventListener('blur', () => {
+            lname = document.getElementById('lname').value;
+            if (lname.length < 8) {
+                document.getElementById('errlname').innerHTML = "enter name grater 8 charcter";
+                document.getElementById('errlname').style.border = "2px solid red";
+                document.getElementById('errlname').style.color = "red";
+            }
+        });
+        document.getElementById('lname').addEventListener('focus', () => {
+            document.getElementById('errlname').innerHTML = "";
+            document.getElementById('errlname').style.border = "";
+        });
+        document.getElementById('phone').addEventListener('blur', () => {
+            phone = document.getElementById('phone').value;
+            pattern_phone = "^[0-9]{10}$"
+            regex_phone = new RegExp(pattern_phone);
+            if (!regex_phone.test(phone)) {
+                document.getElementById('errphone').innerHTML = "enter 10 digit";
+                document.getElementById('errphone').style.border = "2px solid red";
+                document.getElementById('errphone').style.color = "red";
+            }
+        });
+        document.getElementById('phone').addEventListener('focus', () => {
+            document.getElementById('errphone').innerHTML = "";
+            document.getElementById('errphone').style.border = "";
+        });
+        document.getElementById('pass').addEventListener('blur', () => {
+            pass = document.getElementById('pass').value;
+            pattern_pass = "^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,12}$";
+            regex_pass = new RegExp(pattern_pass);
+            if (!regex_pass.test(pass)) {
+                document.getElementById('errpass').innerHTML = "enter strong password";
+                document.getElementById('errpass').style.border = "2px solid red";
+                document.getElementById('errpass').style.color = "red";
+            }
+        });
+        document.getElementById('pass').addEventListener('focus', () => {
+            document.getElementById('errpass').innerHTML = "";
+            document.getElementById('errpass').style.border = "";
+        });
+        document.getElementById('repass').addEventListener('blur', () => {
+            repass = document.getElementById('repass').value;
+            if (repass != pass) {
+                document.getElementById('err-repass').innerHTML = "enter password as above";
+                document.getElementById('err-repass').style.border = "2px solid red";
+                document.getElementById('err-repass').style.color = "red";
+            }
+        });
+        document.getElementById('repass').addEventListener('focus', () => {
+            document.getElementById('err-repass').innerHTML = "";
+            document.getElementById('err-repass').style.border = "";
+        });
+        function checkValidation() {
+            fname = document.getElementById('fname').value
+            email = document.getElementById("email").value;
+            pattern_email = "^[0-9A-za-z._%+-]+@[a-zA-z0-9.-]+\\.[a-zA-Z]{2,}$"
+            regex_email = new RegExp(pattern_email);
+            if (!regex_email.test(email)) {
+                alert("enter email properly");
+            }
+        }
+        function abc(e) {
+            e.preventDefalut();
+        }
+    </script>
+</body>
+
+</html>

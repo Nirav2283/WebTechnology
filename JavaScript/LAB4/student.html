@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        student = [
+            {
+                "name" : "nirav vaghasia",
+                "id" : "1",
+                "email":"nirav@gmail.com"
+
+            },
+            {
+                "name" : "vidisha bhagiya",
+                "id" : "2",
+                "email":"vidisha@gmail.com"
+            },
+            {
+                "name" : "rashi faldu",
+                "id" : "3",
+                "email":"rahsi@gmail.com"
+            },
+            {
+                "name" : "atmik dudhagara",
+                "id" : "4",
+                "email":"atmik@gmail.com"
+            },
+            {
+                "name" : "diya santoki",
+                "id" : "5",
+                "email":"diya@gmail.com"
+            }
+        ]
+
+        document.write("<table border='1' cellpadding='10'>");
+        document.write("<tr><th>ID</th><th>Name</th><th>Email</th></tr>");
+
+        
+        for(let i = 0 ;  i < student.length; i++){
+            document.write("<tr>");
+            document.write("<td>" + student[i].id + "</td>");
+            document.write("<td>" + student[i].name + "</td>");
+            document.write("<td>" + student[i].email + "</td>");
+            document.write("</tr>");
+        }
+
+        // let numberOfUsers = parseInt(prompt("How many users do you want to enter?"));
+        // let users = [];
+
+// for (let i = 0; i < numberOfUsers; i++) {
+//     let name = prompt(`Enter name of user ${i + 1}:`);
+//     let age = parseInt(prompt(`Enter age of user ${i + 1}:`));
+
+//     users.push({
+//         name: name,
+//         age: age
+//     });
+// }
+
+
+// for(let i = 0 ;  i < users.length; i++){
+//             document.write(users[i].name+" ")
+//             document.write(users[i].age+" ")
+//             document.write("</br>")
+//         }
+
+    </script>
+</body>
+</html>

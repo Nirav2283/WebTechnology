@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Events Demo</title>
+  <style>
+    body {
+      text-align: center;
+      padding: 50px;
+      background-color: white;
+    }
+    h2 {
+      padding: 20px;
+      background-color: black;
+      color: white;
+      transition: 0.3s;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #timeDisplay {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="mainHeading">Mouse Events in JavaScript</h2>
+
+  <button onclick="showDateTime()">Find Time</button>
+  <button onclick="changeBackground('red')">Red</button>
+  <button onclick="changeBackground('green')">Green</button>
+
+  <p id="timeDisplay"></p>
+
+  <script>
+    const heading = document.getElementById("mainHeading");
+
+    // Mouseover event
+    heading.addEventListener("mouseover", function () {
+      heading.style.backgroundColor = "yellow";
+      heading.style.color = "black";
+    });
+
+    // Mouseout event
+    heading.addEventListener("mouseout", function () {
+      heading.style.backgroundColor = "black";
+      heading.style.color = "white";
+    });
+
+    function showDateTime() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString();
+      const dateStr = now.toLocaleDateString();
+      document.getElementById("timeDisplay").innerText = `Current Date: ${dateStr}, Time: ${timeStr}`;
+    }
+
+    
+    function changeBackground(color) {
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>

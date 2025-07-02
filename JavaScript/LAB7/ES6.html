@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ES6 Features Demo</title>
+</head>
+<body>
+  <div class="container">
+    <h1>CALLBACK DEMO</h1>
+    <h2 id="display"></h2>
+
+    <h1>DEFAULT PARAMETER DEMO</h1>
+    <h2 id="display2"></h2>
+
+    <h1>DIFFERENCE BETWEEN LET AND VAR</h1>
+    <h3 id="one"></h3>
+    <h3 id="two"></h3>
+    <h3 id="three"></h3>
+
+    <h1>SPREAD OPERATOR</h1>
+    <h3 id="four"></h3>
+    <h3 id="five"></h3>
+
+    <h1>FOR...OF LOOP DEMO</h1>
+    <h3 id="fruitsList"></h3>
+
+    <h1>ARROW FUNCTION DEMO</h1>
+    <h2 id = "display3"></h2>
+  </div>
+
+  <script>
+    
+    function print(x) {
+      document.getElementById('display').innerHTML = "Sum is: " + x;
+    }
+
+    function result(a, b, callback) {
+      let s = a + b;
+      callback(s);
+    }
+
+    result(10, 10, print);
+
+    
+    function abc(a = 5, b = 2) {
+      document.getElementById('display2').innerHTML = "Result: " + (a + b);
+    }
+
+    abc(); 
+    let n = 10;
+    document.getElementById('one').innerHTML = "Global Scope (let): " + n;
+
+    function abcd() {
+      var n = 20; 
+      document.getElementById('two').innerHTML = "Function Scope (var): " + n;
+
+      if (true) {
+        let n = 30;
+        document.getElementById('three').innerHTML = "Block Scope (let): " + n;
+      }
+    }
+
+    abcd();
+
+    const student1 = {
+      name: "Nirav",
+      department: "CSE",
+      rollno: "175",
+      sem: 3,
+    };
+
+    document.getElementById('four').innerHTML = "Student1: " + student1.name;
+
+    const student2 = { ...student1, name: "Darshan" }; 
+    document.getElementById('five').innerHTML = "Student2: " + student2.name;
+
+    const fruits = ["Apple", "Banana", "Mango", "Orange"];
+    const list = document.getElementById("fruitsList");
+
+    
+    for (const fruit of fruits) {
+      fruitsList.innerHTML += " " + fruit + "<br>"
+    }
+
+    const addArrow = (a, b) => a + b;
+    document.getElementById('display3').innerHTML += "Sum : " + addArrow(5,3) + "<br>"
+
+    const square = x => x * x;
+    document.getElementById('display3').innerHTML += "square of  5: " + square(5) + "<br>"
+
+    const sayHello = () => "Hello, World!";
+    document.getElementById('display3').innerHTML += sayHello() + "<br>"
+
+  </script>
+</body>
+</html>

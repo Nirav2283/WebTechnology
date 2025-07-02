@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback Example</title>
+</head>
+<body>
+
+  <h2>Callback Demo: Sum Result</h2>
+  <p id="demo"></p>
+
+  <script>
+    function printResult(some) {
+      document.getElementById("demo").innerHTML = some;
+    }
+
+    function myCalculator(num1, num2, myCallback) {
+      let sum = num1 + num2;
+      myCallback(sum);
+    }
+
+    myCalculator(5, 5, printResult);
+  </script>
+
+</body>
+</html>

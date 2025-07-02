@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search word</title>
+</head>
+<body>
+    <script>
+        sentence = ["Nirav" , "Vaghasia" , "Darshan" , "University" , "Rajkot" , "Hadala"]
+
+        word = prompt("Enter a word to search")
+
+        index = 0
+        isFound = false;
+        for(i = 0 ; i < sentence.length ; i++){
+            if(sentence[i].toLowerCase() == word.toLowerCase()){
+                index = i
+                isFound = true
+                break
+            }
+        }
+
+        if(!isFound){
+            document.write("not found")
+        }else{
+            document.write("found at index: " , index)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 100px;
+            margin-left: 500px;
+            margin-right: 500px;
+        }
+
+        #submit {
+            background-color: rgb(82, 82, 190);
+            padding: 7px;
+            width: 100px;
+            border-radius: 10px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <table align="center">
+            <h1 align="center">Form Validation</h1>
+            <tr>
+                <td>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+            </tr>
+            <tr>
+                <td><input id="name" type="text" placeholder="Enter user name" /></td>
+            </tr>
+            <tr>
+                <td>Enter Password</td>
+            </tr>
+            <tr>
+                <td><input id="pass" type="text" placeholder="Enter password" /></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+            </tr>
+            <tr>
+                <td><input id="repass" type="text" placeholder="Enter password" /></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+            </tr>
+            <tr>
+                <td><input id="dob" type="date" placeholder="Enter age" /></td>
+            </tr>
+            <tr>
+                <td>Enrollment Number</td>
+            </tr>
+            <tr>
+                <td><input id="enrollNo" type="text" placeholder="Enter enrollment number" /></td>
+            </tr>
+            <tr>
+                <td>Enter Email</td>
+            </tr>
+            <tr>
+                <td><input id="email" type="email" placeholder="Enter email" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td><input id="submit" type="submit" onclick="submit()" /></td>
+            </tr>
+        </table>
+
+        <script>
+
+            function submit() {
+
+                var uname = document.getElementById('name').value;
+                if (!((uname.trim()).length >= 8) || uname == "") {
+                    alert('Enter valid user name! user name contains minimum 8 char');
+                }
+// --------------------------------------------------------------------------------------------------------------
+                var upass = document.getElementById('pass').value;
+                if (upass.length < 8 || upass.length > 12)  {
+                    alert('Password Should Be Between 8-12 Characters');
+                }else{
+                    if (upass.length >= 8 && upass.length <= 12) {
+                        var pattern = /^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,12}$/;
+                        // var pattern = /[a-zA-Z][!@#$%^*]{1,}[0-9]{1,}/;
+                        reExp = RegExp(pattern);
+                        if (!reExp.test(upass)) {
+                            alert('Enter valid password');
+                        }
+                    }
+                }
+// --------------------------------------------------------------------------------------------------------------  
+                var confirmpass = document.getElementById('repass').value;
+                if (upass != confirmpass || confirmpass.length == "") {
+                    alert('Enter valid confirm password');
+                }
+// --------------------------------------------------------------------------------------------------------------   
+
+                let d = document.getElementById("dob").value;
+                dob = new Date(d);
+                let date = new Date();
+
+                if ((date.getFullYear() - dob.getFullYear()) < 18) {
+                    alert('age must be greater than 18');
+                }
+// -------------------------------------------------------------------------------------------------------------- 
+
+                var uenrollno = document.getElementById('enrollNo').value;
+                if ((isNaN(uenrollno)) || uenrollno.length != 11) {
+                    alert('enrollment no must be 11 digit');
+                }
+// -------------------------------------------------------------------------------------------------------------- 
+
+                var uemail = document.getElementById('email').value;   
+                var pattern1 = /^[a-zA-Z0-9\.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                var regex1 = new RegExp(pattern1);
+                if (!(regex1.test(uemail))) {
+                    alert("Email Not Valid");
+                }
+                // uname.value = ""; 
+                // upass.value = "";
+                // confirmpass.value = "";
+                // dob.value = "";
+                // uenrollno.value = "";
+                // uemail.value = "";
+            }
+        </script>
+</body>
+
+</html>
