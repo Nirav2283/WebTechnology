@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+         .box {
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 5px;
+      display: inline-block;
+      background-color: lightblue;
+    }
+    </style>    
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $('#demo').click(function(){
+                $(this).fadeOut()
+            })
+
+            $('#btn1').click(function(){
+                $('img').slideUp()
+            })
+
+            $('#btn2').click(function(){
+                $('img').slideDown()
+            })
+
+            $('#btn3').click(function(){
+                $('img').slideToggle()
+            })
+
+            $('#btn4').click(function(){
+                value = $('input').val()
+                $('#data').text(value)
+            })
+
+            $('#btn5').click(function(){
+               $('ul').append('<li>Hello world</li>')
+            })
+
+            
+            $('#btn6').click(function(){
+               $('table').append('<tr><td>2</td><td>New row</td></tr>')
+            })
+            
+            
+            $('#btn7').click(function(){
+               $('#myDiv').children().css({backgroundColor : "red"})
+            })
+
+            $('#btn8').click(function(){
+               $(this).siblings().hide()
+            })
+        })
+    </script>
+    <button id="btn1">Click to Slideup Image</button>
+    <button id="btn2">Click to SlideDown Image</button>
+    <button id="btn3">Click to Slidetoggle Image</button>
+    <h1 id="demo">Click to Get Fadd Animation</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSweN5K2yaBwZpz5W9CxY9S41DI-2LawmjzYw&s">
+    <input type="text" name="" id="">
+    <button id="btn4">Click to retrive text from input tag</button>
+    <h1 id="data"></h1>
+    <button id="btn5">Click to add Hello world in UL</button>
+    <ul>
+        <li>Niraav</li>
+        <li>Darshan</li>
+    </ul>
+    <button id="btn6">Click to add New Row in table</button>
+    <br><br>
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Nirav</td>
+        </tr>
+    </table>
+
+    <div id="myDiv">
+        <h1>This is from my myDiv</h1>
+        <p>this is para from mydiv</p>
+    </div>
+
+    <button id="btn7">Click to Change properties of DIV</button>
+    
+    <div>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <button id="btn8">Hide My Siblings</button>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+  </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('h1').html("Hello world")
+            })
+        })
+    </script>
+    <body>
+        <button>Click me</button>
+        <h1></h1>
+    </body>
+</body>
+</html>

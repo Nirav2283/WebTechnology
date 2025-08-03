@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        isVisibe = true
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                $('#myEle').hide()
+            })
+
+            $('#btn2').click(function () {
+                $('.myEle , #myEle').hide()
+            })
+
+            $('#btn3').click(function(){
+                if(!isVisibe){
+                    $('.myEle , #myEle').show()
+                }else{
+                    $('.myEle , #myEle').hide()
+                }
+                isVisibe = !isVisibe
+            })
+
+            $('#btn4').click(function(){
+                $('input').css({backgroundColor : "green"})
+            })
+
+            $('#myEle2').click(function(){
+                $(this).hide()
+            })
+
+            $('input').focus(function(){
+                $(this).css({backgroundColor : "red"})
+            })
+
+            $('input').blur(function(){
+                $(this).css({backgroundColor : "white"})
+            })
+
+            $('p').mouseenter(function(){
+                $(this).css({backgroundColor : "red"})
+            })
+            $('p').mouseout(function(){
+                $(this).css({backgroundColor : "white"})
+            })
+            
+            $(document).mousemove(function(e){
+               $('#coords').text("X: " + e.pageX + " | Y: " + e.pageY)
+            })
+
+            $('#enrollno').blur(function(){
+                result = $(this).val()
+                if(result.length != 11){
+                    $("span").text("Enter a Valid Enrollment number")
+                }
+            })
+
+        })
+    </script>
+    <h1 id="myEle">Hello World</h1>
+    <h2 class="myEle">Hello world</h2>
+    <h3 class="myEle">Hello world</h3>
+    <button id="btn">Click to hide</button>
+    <button id="btn2">Click to hide all elements</button>
+    <button id="btn3">Click to toggle hide and show</button>
+    <br><br>
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <button id="btn4">Click to change Input tag color</button>
+    <h2 id="myEle2">Click me to hide</h2>
+    <p>Enter Mouse in this paragraph Enter Mouse in this paragraph Enter Mouse in this paragraph Enter Mouse in this paragraph Enter Mouse in this paragraph Enter Mouse in this paragraph</p>
+    <h2>Coordinates: </h2>
+    <h2 id="coords"></h2>
+    <h3>Enter enrollment no: </h3>
+    <input type="text" name="" id="enrollno"><span></span>
+
+</body>
+
+</html>
