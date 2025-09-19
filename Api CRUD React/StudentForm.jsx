@@ -5,17 +5,17 @@ function StudentForm() {
     const [student , setStudent] = useState({name : '' , email: ''})
     const navigate = useNavigate()
     const api = "https://6671937fe083e62ee43c341e.mockapi.io/Students"
-    const param = useParams()
+    const { id } = useParams()
 
     useEffect(()=>{
-        if(param.id){
-            fetch(api + '/' + param.id).then(res=>res.json()).then((res)=>setStudent(res))
+        if(id){
+            fetch(api + '/' + id).then(res=>res.json()).then((res)=>setStudent(res))
         }
-    } ,[param.id])
+    } ,[id])
 
     const handleSubmit = () => {
-        if(param.id){
-            fetch(api + '/' + param.id , {
+        if(id){
+            fetch(api + '/' + id , {
                 method : "PUT",
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(student)
@@ -35,7 +35,7 @@ function StudentForm() {
 
   return (
     <div>
-      <h2>{param.id ? "Edit Student" : "Add Student"}</h2>
+      <h2>{id ? "Edit Student" : "Add Student"}</h2>
         <input
           placeholder="Name"
           value={student.name}
@@ -46,7 +46,7 @@ function StudentForm() {
           value={student.email}
           onChange={(e) => setStudent({ ...student, email: e.target.value })}
         />
-        <button type="submit" onClick={handleSubmit}>{param.id ? "Update" : "Save"}</button>
+        <button type="submit" onClick={handleSubmit}>{id ? "Update" : "Save"}</button>
      
     </div>
   )
